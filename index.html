@@ -154,20 +154,15 @@
 
     .viber{background:rgba(102,92,172,.3);box-shadow:inset 0 0 8px rgba(102,92,172,.4),0 4px 8px rgba(0,0,0,.1);animation:flashViber .5s ease forwards 3s}
     .telegram{background:rgba(0,136,204,.3);box-shadow:inset 0 0 8px rgba(0,136,204,.4),0 4px 8px rgba(0,0,0,.1);animation:flashTelegram .5s ease forwards 3.5s}
-    .whatsapp{background:rgba(37,211,102,.3);box-shadow:inset 0 0 8px rgba(37,211,102,.4),0 4px 8px rgba(0,0,0,.1);animation:flashWhatsapp .5s ease forwards 4s,brandPulseWhatsapp 5s linear infinite 4.5s}
     .instagram{background:rgba(225,48,108,.3);box-shadow:inset 0 0 8px rgba(225,48,108,.4),0 4px 8px rgba(0,0,0,.1);animation:flashInstagram .5s ease forwards 4.5s,brandPulseInstagram 5s linear infinite 5s}
     .tiktok{background:rgba(0,242,234,.3);box-shadow:inset 0 0 8px rgba(0,242,234,.4),0 4px 8px rgba(0,0,0,.1);animation:flashTiktok .5s ease forwards 5s,brandPulseTiktok 5s linear infinite 5.5s}
-    .youtube{background:rgba(255,0,0,.3);box-shadow:inset 0 0 8px rgba(255,0,0,.4),0 4px 8px rgba(0,0,0,.1);animation:flashYoutube .5s ease forwards 5.5s}
 
     @keyframes flashViber{0%{background:rgba(102,92,172,.3)}50%{background:rgba(102,92,172,.8)}100%{background:rgba(102,92,172,.3)}}
     @keyframes flashTelegram{0%{background:rgba(0,136,204,.3)}50%{background:rgba(0,136,204,.8)}100%{background:rgba(0,136,204,.3)}}
-    @keyframes flashWhatsapp{0%{background:rgba(37,211,102,.3)}50%{background:rgba(37,211,102,.8)}100%{background:rgba(37,211,102,.3)}}
     @keyframes flashInstagram{0%{background:rgba(131,58,180,.3)}50%{background:rgba(245,96,64,.8)}100%{background:rgba(225,48,108,.3)}}
     @keyframes flashTiktok{0%{background:rgba(0,242,234,.3)}50%{background:rgba(255,0,80,.8)}100%{background:rgba(0,242,234,.3)}}
-    @keyframes flashYoutube{0%{background:rgba(40,40,40,.3)}50%{background:rgba(255,0,0,.8)}100%{background:rgba(255,0,0,.3)}}
     @keyframes brandPulseInstagram{0%{background:rgba(225,48,108,.3)}33%{background:rgba(245,96,64,.4)}66%{background:rgba(225,48,108,.8)}100%{background:rgba(225,48,108,.3)}}
     @keyframes brandPulseTiktok{0%{background:rgba(0,242,234,.3)}33%{background:rgba(255,0,80,.4)}66%{background:rgba(0,242,234,.8)}100%{background:rgba(0,242,234,.3)}}
-    @keyframes brandPulseWhatsapp{0%{background:rgba(37,211,102,.3)}33%{background:rgba(37,211,102,.5)}66%{background:rgba(37,211,102,.8)}100%{background:rgba(37,211,102,.3)}}
 
     #live-button{
       background:#ff3b30;color:#fff;text-transform:uppercase;font-weight:600;
@@ -364,13 +359,10 @@
       <div class="row-large">
         <a class="viber" href="https://invite.viber.com/?g2=AQALrwA5a6AMAVHFAdzhBLhFZ8DX%2Bcu%2BHkxWvHv2WUGytu7oS0B3o4Mxdh89zdar&lang=ru" onclick="gtag('event','click_social_viber');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Viber"><img src="icons/viber.svg" alt="Viber" loading="lazy"></a>
         <a class="telegram" href="https://t.me/KIDOua" onclick="gtag('event','click_social_telegram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Telegram"><img src="icons/telegram.svg" alt="Telegram" loading="lazy"></a>
-        <a class="whatsapp" href="https://wa.me/message/CVTB4P5TSKZWL1" onclick="gtag('event','click_social_whatsapp');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="icons/whatsapp.svg" alt="WhatsApp" loading="lazy"></a>
       </div>
       <div class="row-small">
         <a class="instagram" href="https://www.instagram.com/kidoliveshop/" onclick="gtag('event','click_social_instagram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Instagram"><img src="icons/instagram.svg" alt="Instagram" loading="lazy"></a>
         <a class="tiktok" href="https://www.tiktok.com/@kidoliveshop" onclick="gtag('event','click_social_tiktok');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="TikTok"><img src="icons/tiktok.svg" alt="TikTok" loading="lazy"></a>
-        <a class="youtube" href="https://www.youtube.com/@kidoliveshop" onclick="gtag('event','click_social_youtube');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="YouTube"><img src="icons/youtube.svg" alt="YouTube" loading="lazy"></a>
-      </div>
     </div>
 
     <div id="live-button">
@@ -390,10 +382,8 @@
       <div class="landscape-icons row-small">
         <a class="viber" href="https://invite.viber.com/?g2=AQALrwA5a6AMAVHFAdzhBLhFZ8DX%2Bcu%2BHkxWvHv2WUGytu7oS0B3o4Mxdh89zdar&lang=ru" onclick="gtag('event','click_land_viber');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Viber"><img src="icons/viber.svg" alt="Viber" loading="lazy"></a>
         <a class="telegram" href="https://t.me/KIDOua" onclick="gtag('event','click_land_telegram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Telegram"><img src="icons/telegram.svg" alt="Telegram" loading="lazy"></a>
-        <a class="whatsapp" href="https://wa.me/message/CVTB4P5TSKZWL1" onclick="gtag('event','click_land_whatsapp');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="icons/whatsapp.svg" alt="WhatsApp" loading="lazy"></a>
         <a class="instagram" href="https://www.instagram.com/kidoliveshop/" onclick="gtag('event','click_land_instagram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Instagram"><img src="icons/instagram.svg" alt="Instagram" loading="lazy"></a>
         <a class="tiktok" href="https://www.tiktok.com/@kidoliveshop" onclick="gtag('event','click_land_tiktok');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="TikTok"><img src="icons/tiktok.svg" alt="TikTok" loading="lazy"></a>
-        <a class="youtube" href="https://www.youtube.com/@kidoliveshop" onclick="gtag('event','click_land_youtube');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="YouTube"><img src="icons/youtube.svg" alt="YouTube" loading="lazy"></a>
       </div>
       <div class="landscape-paylink">
         <a href="/oplata-dostavka.html" onclick="gtag('event','click_land_payment');">ОПЛАТА І ДОСТАВКА</a>
