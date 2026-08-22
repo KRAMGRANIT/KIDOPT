@@ -29,7 +29,6 @@
       *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
     }
 
-    /* ─── ТЕМА: управляется только JS-классом на body ─── */
     body{
       font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
       display:flex;justify-content:center;align-items:center;
@@ -45,8 +44,7 @@
     body.day #phone-menu{background:rgba(255,255,255,.95)}
     body.day .menu-item{color:#000;border-bottom:1px solid rgba(0,0,0,.05)}
     body.day .menu-item:active{background:rgba(0,0,0,.05)}
-    body.day .paylink a{color:#111;border-top:1px solid rgba(0,0,0,.12)}
-    body.day .landscape-paylink a{color:#111;border-top:1px solid rgba(0,0,0,.12)}
+    body.day .paylink a, body.day .landscape-paylink a{color:#111;border-top:1px solid rgba(0,0,0,.12)}
 
     /* НОЧЬ (20:00–07:00) */
     body.night{background:#000}
@@ -57,8 +55,7 @@
     body.night #phone-menu{background:rgba(30,30,30,.95)}
     body.night .menu-item{color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
     body.night .menu-item:active{background:rgba(255,255,255,.1)}
-    body.night .paylink a{color:#f5f5f5;border-top:1px solid rgba(255,255,255,.25)}
-    body.night .landscape-paylink a{color:#f5f5f5;border-top:1px solid rgba(255,255,255,.25)}
+    body.night .paylink a, body.night .landscape-paylink a{color:#f5f5f5;border-top:1px solid rgba(255,255,255,.25)}
 
     .container{
       position:relative;width:100%;max-width:400px;
@@ -123,7 +120,6 @@
       font-family:inherit;font-size:16px;
     }
     .menu-item:last-child{border-bottom:none;color:#ff3b30!important}
-    a.menu-item{border-bottom:1px solid rgba(0,0,0,.05)}
 
     #copy-notice{
       position:fixed;top:20px;left:50%;transform:translateX(-50%);
@@ -132,17 +128,19 @@
       opacity:0;transition:opacity .3s;z-index:2100;pointer-events:none;
     }
 
-    /* ─── ИКОНКИ В ОДИН РЯД ─── */
-    .buttons{
+    /* ─── ЕДИНЫЕ СТИЛИ ДЛЯ ИКОНОК ─── */
+    .buttons, .landscape-icons{
       display:flex;
       flex-direction:row;
       justify-content:center;
       align-items:center;
       gap:12px;
+    }
+    .buttons{
       margin-top:20px;
       margin-bottom:50px;
     }
-    .buttons a{
+    .buttons a, .landscape-icons a{
       position:relative;
       overflow:hidden;
       text-decoration:none;
@@ -158,7 +156,7 @@
       box-shadow:inset 0 0 8px rgba(0,0,0,.2),0 4px 8px rgba(0,0,0,.1);
       transition:transform .2s ease,box-shadow .2s ease,background .3s ease;
     }
-    .buttons a::before{
+    .buttons a::before, .landscape-icons a::before{
       content:"";
       position:absolute;
       inset:0;
@@ -167,11 +165,11 @@
       pointer-events:none;
       z-index:1;
     }
-    .buttons a:hover{
+    .buttons a:hover, .landscape-icons a:hover{
       transform:translateY(-3px);
       box-shadow:0 8px 16px rgba(0,0,0,.2),inset 0 0 20px rgba(255,255,255,.5);
     }
-    .buttons a img{
+    .buttons a img, .landscape-icons a img{
       width:36px;
       height:auto;
       display:block;
@@ -204,39 +202,36 @@
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,0,0,.7)}70%{box-shadow:0 0 0 15px rgba(255,0,0,0)}100%{box-shadow:0 0 0 0 rgba(255,0,0,0)}}
 
     .paylink{display:none;text-align:center;margin-top:50px}
-    .paylink a{font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding-top:10px;opacity:.9}
-    .paylink a:hover{opacity:1;text-decoration:underline}
+    .paylink a, .landscape-paylink a{font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding-top:10px;opacity:.9}
+    .paylink a:hover, .landscape-paylink a:hover{opacity:1;text-decoration:underline}
 
     .landscape-bar{display:none}
-    .landscape-paylink a{display:inline-block;margin-top:8px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding-top:10px;opacity:.9}
-    .landscape-paylink a:hover{opacity:1;text-decoration:underline}
-    .landscape-icons{display:flex;gap:16px;justify-content:center;margin-top:10px}
 
     .seo-text{display:none}
     @media(orientation:landscape){
-      .seo-text{display:block;width:100%;max-width:100%;padding:30px 20px;margin:0;margin-top:-1cm;text-align:center;font-size:16px;animation:popIn .8s ease-out}
+      .seo-text{display:block;width:100%;max-width:100%;padding:10px 20px;margin:0;text-align:center;font-size:16px;animation:popIn .8s ease-out}
       .seo-text p{background:linear-gradient(270deg,#ffb504,#2ecc71,#ff80aa,#00b4d8);background-size:800% 800%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientShift 8s ease infinite}
       .buttons{display:none}
       #live-button{display:none!important}
       .paylink{display:none!important}
-      .landscape-bar{display:flex;flex-direction:column;align-items:center;margin-top:16px}
+      .landscape-bar{display:flex;flex-direction:column;align-items:center;margin-top:10px}
       .phone-container{display:none}
       .header{display:none}
-      .container{max-width:800px;min-height:300px;padding:4px 20px}
+      .container{max-width:800px;min-height:auto;padding:20px}
     }
     @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     @keyframes popIn{0%{transform:translateY(-20px)scale(.95);opacity:0}100%{transform:translateY(0)scale(1);opacity:1}}
 
     .tiktok-landscape{display:none}
-    @media(orientation:landscape){.tiktok-landscape{display:block;margin-bottom:20px}}
+    @media(orientation:landscape){.tiktok-landscape{display:block;margin-bottom:10px}}
     .landscape-break{display:none}
     @media(orientation:landscape){.landscape-break{display:block}}
 
     @media(max-width:400px){
       .header img{width:300px;max-width:100%;margin:-50px auto 10px}
       .header h1{font-size:22px;margin-top:-26px}
-      .buttons a{width:56px;height:56px}
-      .buttons a img{width:30px}
+      .buttons a, .landscape-icons a{width:56px;height:56px}
+      .buttons a img, .landscape-icons a img{width:30px}
       #live-button{width:80px;height:36px;line-height:36px}
       .buttons{margin-top:-10px}
     }
@@ -252,37 +247,13 @@
       box-shadow:0 8px 32px rgba(0, 0, 0, 0.45);
       padding:10px 16px;
     }
-    .hint-row{
-      display:flex;align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      white-space:nowrap;
-    }
-    .hint-text{
-      font-size:14px;font-weight:500;
-      color:rgba(255,255,255,0.92);
-      white-space:nowrap;overflow:hidden;
-      text-overflow:ellipsis;
-      flex:1;
-      text-shadow:0 1px 2px rgba(0,0,0,0.5);
-    }
-    .hint-text b.dots-badge{
-      color:#fff;
-      font-weight:800;
-      letter-spacing:1px;
-      background:rgba(255, 255, 255, 0.18);
-      border:1px solid rgba(255, 255, 255, 0.3);
-      padding:2px 8px;
-      border-radius:8px;
-      margin:0 2px;
-      display:inline-block;
-      box-shadow:inset 0 1px 2px rgba(255,255,255,0.25), 0 2px 6px rgba(0,0,0,0.3);
-    }
-    .hint-text .arr{ color:rgba(255,255,255,0.6);margin:0 4px;font-weight:600; }
+    .hint-row{display:flex;align-items:center;justify-content:space-between;gap:12px;white-space:nowrap}
+    .hint-text{font-size:14px;font-weight:500;color:rgba(255,255,255,0.92);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;text-shadow:0 1px 2px rgba(0,0,0,0.5)}
+    .hint-text b.dots-badge{color:#fff;font-weight:800;letter-spacing:1px;background:rgba(255, 255, 255, 0.18);border:1px solid rgba(255, 255, 255, 0.3);padding:2px 8px;border-radius:8px;margin:0 2px;display:inline-block;box-shadow:inset 0 1px 2px rgba(255,255,255,0.25), 0 2px 6px rgba(0,0,0,0.3)}
+    .hint-text .arr{color:rgba(255,255,255,0.6);margin:0 4px;font-weight:600}
     
     .hint-arrow-anim{
-      flex-shrink:0;
-      display:block;
+      flex-shrink:0;display:block;
       animation:arrowBounceToDots 1.2s ease-in-out infinite;
       transform-origin:100% 0%;
       filter:drop-shadow(0 0 6px rgba(255, 59, 48, 0.6));
@@ -293,7 +264,6 @@
       100% { transform: translate(0, 0) scale(1); }
     }
 
-    /* Частицы и конфетти */
     #particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.45}
     #confetti-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
 
@@ -301,12 +271,6 @@
       .buttons{margin-bottom:50px!important}
       #live-button{margin-top:30px!important}
       .paylink{margin-top:50px!important}
-    }
-    @media(orientation:landscape){
-      .tiktok-landscape{margin-bottom:8px!important}
-      .landscape-bar{margin-top:-15px!important}
-      .landscape-icons{margin-top:5px!important}
-      .landscape-paylink a{margin-top:16px!important}
     }
   </style>
 </head>
@@ -372,6 +336,7 @@
       </button>
     </div>
 
+    <!-- Кнопки для вертикального режима -->
     <div class="buttons">
       <a class="viber" href="https://invite.viber.com/?g2=AQALrwA5a6AMAVHFAdzhBLhFZ8DX%2Bcu%2BHkxWvHv2WUGytu7oS0B3o4Mxdh89zdar&lang=ru" onclick="gtag('event','click_social_viber');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Viber"><img src="icons/viber.svg" alt="Viber" loading="lazy"></a>
       <a class="telegram" href="https://t.me/KIDOua" onclick="gtag('event','click_social_telegram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Telegram"><img src="icons/telegram.svg" alt="Telegram" loading="lazy"></a>
@@ -393,6 +358,7 @@
       <p><strong>KIDO</strong> — Liveшоп, продаж дитячого одягу у прямих ефірах<br class="landscape-break"></p>
     </div>
 
+    <!-- Блок для горизонтального режима -->
     <div class="landscape-bar" aria-label="Посилання та соцмережі">
       <div class="landscape-icons">
         <a class="viber" href="https://invite.viber.com/?g2=AQALrwA5a6AMAVHFAdzhBLhFZ8DX%2Bcu%2BHkxWvHv2WUGytu7oS0B3o4Mxdh89zdar&lang=ru" onclick="gtag('event','click_land_viber');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Viber"><img src="icons/viber.svg" alt="Viber" loading="lazy"></a>
@@ -407,7 +373,6 @@
   </div>
 
   <script>
-    // ─── AudioContext ──────────────────────────────────────────────────────────
     var audioCtx = null;
     function getAudioCtx() {
       if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -430,7 +395,6 @@
       } catch(e){}
     }
 
-    // ─── TikTok WebView детект ─────────────────────────────────────────────────
     function isTikTokWebView() {
       var ua = navigator.userAgent || '';
       return /musical_ly|TikTok|BytedanceWebview|bytedance/i.test(ua);
@@ -452,7 +416,6 @@
       sessionStorage.setItem('tiktok_hint_closed','1');
     }
 
-    // ─── Копирование ───────────────────────────────────────────────────────────
     async function copyToClipboard(text) {
       gtag('event', 'copy_phone_number');
       if(navigator.vibrate) navigator.vibrate([40, 30, 40]);
@@ -473,7 +436,6 @@
       setTimeout(function(){ notice.style.opacity = '0'; }, 2000);
     }
 
-    // ─── Меню ─────────────────────────────────────────────────────────────────
     function togglePhoneMenu() {
       var menu = document.getElementById('phone-menu');
       menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
@@ -491,7 +453,6 @@
       }
     });
 
-    // ─── Ориентация ───────────────────────────────────────────────────────────
     function updateLayoutForOrientation() {
       var isPortrait = window.matchMedia('(orientation:portrait)').matches;
       var liveBtn = document.getElementById('live-button');
@@ -517,7 +478,6 @@
       loadTiktokIfLandscape();
     });
 
-    // ─── Частицы ──────────────────────────────────────────────────────────────
     function initParticles() {
       var canvas = document.getElementById('particles-canvas');
       if(!canvas) return;
@@ -556,7 +516,6 @@
       window.addEventListener('resize', resize);
     }
 
-    // ─── Конфетти ─────────────────────────────────────────────────────────────
     function launchConfetti() {
       if(sessionStorage.getItem('confetti_shown')) return;
       sessionStorage.setItem('confetti_shown','1');
@@ -595,7 +554,6 @@
       animate();
     }
 
-    // ─── Инициализация ────────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', function() {
       updateLayoutForOrientation();
       loadTiktokIfLandscape();
