@@ -16,7 +16,7 @@
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="KIDO — Дитячий та підлітковий одяг">
   <meta property="og:description" content="Liveшоп — продаж дитячого одягу у прямих ефірах. Viber, Telegram, Instagram.">
-  <meta property="og:image" content="https://valenty.store/icons/LOGO.png">
+  <meta property="og:image" content="https://valenty.store/icons/logo1.webp">
   <meta property="og:url" content="https://valenty.store">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -349,7 +349,7 @@
 
   <div class="container">
     <div class="header">
-      <img id="logo" src="icons/LOGO.png" alt="KIDO — логотип магазину дитячого одягу">
+      <img id="logo" src="icons/logo1.webp" alt="KIDO — логотип магазину дитячого одягу">
       <h1>Дитячий та підлітковий одяг</h1>
     </div>
 
@@ -597,6 +597,13 @@
       showTiktokHint();
       initParticles();
       launchConfetti();
+
+      // Случайный логотип
+      var logos = ['icons/logo1.webp', 'icons/logo2.webp', 'icons/logo3.webp'];
+      var logoEl = document.getElementById('logo');
+      if(logoEl) {
+        var randomLogo = logos[Math.floor(Math.random() * logos.length)];
+        logoEl.src = randomLogo;
       }
     });
   </script>
