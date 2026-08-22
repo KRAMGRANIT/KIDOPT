@@ -132,24 +132,52 @@
       opacity:0;transition:opacity .3s;z-index:2100;pointer-events:none;
     }
 
-    .buttons{display:flex;flex-direction:column;gap:24px;margin-bottom:50px}
-    .row-large{display:flex;gap:16px;margin-top:20px;justify-content:center;align-items:center}
-    .row-small{display:flex;gap:16px;justify-content:center;margin-top:-8px}
-    .row-large a,.row-small a{
-      position:relative;overflow:hidden;text-decoration:none;
-      background:rgba(255,255,255,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    /* ─── ИКОНКИ В ОДИН РЯД ─── */
+    .buttons{
+      display:flex;
+      flex-direction:row;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      margin-top:20px;
+      margin-bottom:50px;
+    }
+    .buttons a{
+      position:relative;
+      overflow:hidden;
+      text-decoration:none;
+      width:64px;
+      height:64px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      border-radius:16px;
+      background:rgba(255,255,255,.8);
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+      box-shadow:inset 0 0 8px rgba(0,0,0,.2),0 4px 8px rgba(0,0,0,.1);
       transition:transform .2s ease,box-shadow .2s ease,background .3s ease;
     }
-    .row-large a::before,.row-small a::before{
-      content:"";position:absolute;inset:0;
+    .buttons a::before{
+      content:"";
+      position:absolute;
+      inset:0;
       background:url("textures/frosted-glass.png") no-repeat center/cover;
-      opacity:.5;pointer-events:none;z-index:1;
+      opacity:.5;
+      pointer-events:none;
+      z-index:1;
     }
-    .row-large a{width:70px;height:70px;display:flex;justify-content:center;align-items:center;border-radius:16px;box-shadow:inset 0 0 8px rgba(0,0,0,.2),0 4px 8px rgba(0,0,0,.1)}
-    .row-large a:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgba(0,0,0,.2),inset 0 0 20px rgba(255,255,255,.5)}
-    .row-small a{width:70px;height:70px;display:flex;justify-content:center;align-items:center;border-radius:16px;box-shadow:inset 0 0 6px rgba(0,0,0,.2),0 4px 8px rgba(0,0,0,.1)}
-    .row-small a:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgba(0,0,0,.2),inset 0 0 16px rgba(255,255,255,.5)}
-    .row-large a img,.row-small a img{width:40px;height:auto;display:block;z-index:2;animation:iconPulse 2s ease-in-out infinite}
+    .buttons a:hover{
+      transform:translateY(-3px);
+      box-shadow:0 8px 16px rgba(0,0,0,.2),inset 0 0 20px rgba(255,255,255,.5);
+    }
+    .buttons a img{
+      width:36px;
+      height:auto;
+      display:block;
+      z-index:2;
+      animation:iconPulse 2s ease-in-out infinite;
+    }
     @keyframes iconPulse{0%,100%{filter:drop-shadow(0 0 5px rgba(255,255,255,.5))}50%{filter:drop-shadow(0 0 15px rgba(255,255,255,1))}}
 
     .viber{background:rgba(102,92,172,.3);box-shadow:inset 0 0 8px rgba(102,92,172,.4),0 4px 8px rgba(0,0,0,.1);animation:flashViber .5s ease forwards 3s}
@@ -207,12 +235,13 @@
     @media(max-width:400px){
       .header img{width:300px;max-width:100%;margin:-50px auto 10px}
       .header h1{font-size:22px;margin-top:-26px}
-      .row-large a,.row-small a{width:70px;height:70px}
+      .buttons a{width:56px;height:56px}
+      .buttons a img{width:30px}
       #live-button{width:80px;height:36px;line-height:36px}
       .buttons{margin-top:-10px}
     }
 
-    /* ── TikTok WebView — оновлена виразна скляна підкладка ── */
+    /* ── TikTok WebView ── */
     #tiktok-hint{
       display:none;
       position:fixed;top:0;left:0;right:0;
@@ -251,7 +280,6 @@
     }
     .hint-text .arr{ color:rgba(255,255,255,0.6);margin:0 4px;font-weight:600; }
     
-    /* Анімація стрілки з поштовхом у бік трьох крапок */
     .hint-arrow-anim{
       flex-shrink:0;
       display:block;
@@ -283,7 +311,6 @@
   </style>
 </head>
 <body>
-  <!-- Тема применяется до рендера — нет мигания -->
   <script>
     (function(){
       var h = new Date().getHours();
@@ -291,7 +318,6 @@
     })();
   </script>
 
-  <!-- TikTok WebView — оновлена полоска -->
   <div id="tiktok-hint" role="status">
     <div class="hint-row">
       <div class="hint-text">
@@ -312,17 +338,8 @@
             </feMerge>
           </filter>
         </defs>
-        <!-- Дуга напрямку -->
-        <path d="M6 26 C8 16 16 8 26 5"
-          stroke="url(#ag2)" stroke-width="2.8"
-          stroke-linecap="round" fill="none"
-          filter="url(#glow2)"/>
-        <!-- Чітке вістря стрілки у верхній правий кут -->
-        <path d="M18 4 L27 5 L25 14"
-          stroke="url(#ag2)" stroke-width="2.8"
-          stroke-linecap="round" stroke-linejoin="round"
-          fill="none" filter="url(#glow2)"/>
-        <!-- Пульсуюча точка акценту -->
+        <path d="M6 26 C8 16 16 8 26 5" stroke="url(#ag2)" stroke-width="2.8" stroke-linecap="round" fill="none" filter="url(#glow2)"/>
+        <path d="M18 4 L27 5 L25 14" stroke="url(#ag2)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow2)"/>
         <circle cx="27" cy="5" r="3" fill="#ff3b30" filter="url(#glow2)">
           <animate attributeName="r" values="2.5;5.5;2.5" dur="1.2s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="1;0.4;1" dur="1.2s" repeatCount="indefinite"/>
@@ -356,14 +373,10 @@
     </div>
 
     <div class="buttons">
-      <div class="row-large">
-        <a class="viber" href="https://invite.viber.com/?g2=AQALrwA5a6AMAVHFAdzhBLhFZ8DX%2Bcu%2BHkxWvHv2WUGytu7oS0B3o4Mxdh89zdar&lang=ru" onclick="gtag('event','click_social_viber');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Viber"><img src="icons/viber.svg" alt="Viber" loading="lazy"></a>
-        <a class="telegram" href="https://t.me/KIDOua" onclick="gtag('event','click_social_telegram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Telegram"><img src="icons/telegram.svg" alt="Telegram" loading="lazy"></a>
-      </div>
-      <div class="row-small">
-        <a class="instagram" href="https://www.instagram.com/kidoliveshop/" onclick="gtag('event','click_social_instagram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Instagram"><img src="icons/instagram.svg" alt="Instagram" loading="lazy"></a>
-        <a class="tiktok" href="https://www.tiktok.com/@kidoliveshop" onclick="gtag('event','click_social_tiktok');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="TikTok"><img src="icons/tiktok.svg" alt="TikTok" loading="lazy"></a>
-      </div>
+      <a class="viber" href="https://invite.viber.com/?g2=AQALrwA5a6AMAVHFAdzhBLhFZ8DX%2Bcu%2BHkxWvHv2WUGytu7oS0B3o4Mxdh89zdar&lang=ru" onclick="gtag('event','click_social_viber');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Viber"><img src="icons/viber.svg" alt="Viber" loading="lazy"></a>
+      <a class="telegram" href="https://t.me/KIDOua" onclick="gtag('event','click_social_telegram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Telegram"><img src="icons/telegram.svg" alt="Telegram" loading="lazy"></a>
+      <a class="instagram" href="https://www.instagram.com/kidoliveshop/" onclick="gtag('event','click_social_instagram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Instagram"><img src="icons/instagram.svg" alt="Instagram" loading="lazy"></a>
+      <a class="tiktok" href="https://www.tiktok.com/@kidoliveshop" onclick="gtag('event','click_social_tiktok');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="TikTok"><img src="icons/tiktok.svg" alt="TikTok" loading="lazy"></a>
     </div>
 
     <div id="live-button">
@@ -381,7 +394,7 @@
     </div>
 
     <div class="landscape-bar" aria-label="Посилання та соцмережі">
-      <div class="landscape-icons row-small">
+      <div class="landscape-icons">
         <a class="viber" href="https://invite.viber.com/?g2=AQALrwA5a6AMAVHFAdzhBLhFZ8DX%2Bcu%2BHkxWvHv2WUGytu7oS0B3o4Mxdh89zdar&lang=ru" onclick="gtag('event','click_land_viber');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Viber"><img src="icons/viber.svg" alt="Viber" loading="lazy"></a>
         <a class="telegram" href="https://t.me/KIDOua" onclick="gtag('event','click_land_telegram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Telegram"><img src="icons/telegram.svg" alt="Telegram" loading="lazy"></a>
         <a class="instagram" href="https://www.instagram.com/kidoliveshop/" onclick="gtag('event','click_land_instagram');if(navigator.vibrate)navigator.vibrate(30);" target="_blank" rel="noopener" aria-label="Instagram"><img src="icons/instagram.svg" alt="Instagram" loading="lazy"></a>
@@ -439,7 +452,7 @@
       sessionStorage.setItem('tiktok_hint_closed','1');
     }
 
-    // ─── Копирование (вибрация + звук в одном обработчике) ────────────────────
+    // ─── Копирование ───────────────────────────────────────────────────────────
     async function copyToClipboard(text) {
       gtag('event', 'copy_phone_number');
       if(navigator.vibrate) navigator.vibrate([40, 30, 40]);
@@ -543,7 +556,7 @@
       window.addEventListener('resize', resize);
     }
 
-    // ─── Конфетти (один раз за сессию) ────────────────────────────────────────
+    // ─── Конфетти ─────────────────────────────────────────────────────────────
     function launchConfetti() {
       if(sessionStorage.getItem('confetti_shown')) return;
       sessionStorage.setItem('confetti_shown','1');
@@ -590,7 +603,6 @@
       initParticles();
       launchConfetti();
 
-      // Случайный логотип
       var logos = ['icons/logo1.png', 'icons/logo1.png', 'icons/logo1.png'];
       var logoEl = document.getElementById('logo');
       if(logoEl) {
